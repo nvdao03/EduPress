@@ -1,0 +1,187 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "image": "images/categories/design.svg",
+      "title": "Art & Design",
+      "description": "38 Courses"
+    },
+    {
+      "id": 2,
+      "image": "images/categories/development.svg",
+      "title": "Development",
+      "description": "38 Courses"
+    },
+    {
+      "id": 3,
+      "image": "images/categories/communiication.svg",
+      "title": "Communiication",
+      "description": "38 Courses"
+    },
+    {
+      "id": 4,
+      "image": "images/categories/videography.svg",
+      "title": "Videography",
+      "description": "38 Courses"
+    },
+    {
+      "id": 5,
+      "image": "images/categories/photography.svg",
+      "title": "Photography",
+      "description": "38 Courses"
+    },
+    {
+      "id": 6,
+      "image": "images/categories/marketing.svg",
+      "title": "Marketing",
+      "description": "38 Courses"
+    },
+    {
+      "id": 7,
+      "image": "images/categories/writing.svg",
+      "title": "Content writing",
+      "description": "38 Courses"
+    },
+    {
+      "id": 8,
+      "image": "images/categories/finance.svg",
+      "title": "Finance",
+      "description": "38 Courses"
+    },
+    {
+      "id": 9,
+      "image": "images/categories/science.svg",
+      "title": "Science",
+      "description": "38 Courses"
+    },
+    {
+      "id": 10,
+      "image": "images/categories/network.svg",
+      "title": "Network",
+      "description": "38 Courses"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "image": "images/courses/courses-1.svg",
+      "title": "Determined-Poitras",
+      "heading": "Create an LMS Website with LearnPress",
+      "week": "2Weeks",
+      "student": "156 Students",
+      "level": "All levels",
+      "lesson": "20 Lessons",
+      "price": "$29.0",
+      "discount": "Free"
+    },
+    {
+      "id": 2,
+      "image": "images/courses/courses-2.svg",
+      "title": "Determined-Poitras",
+      "heading": "Design a website with ThimPress",
+      "week": "2Weeks",
+      "student": "156 Students",
+      "level": "All levels",
+      "lesson": "20 Lessons",
+      "price": "$59.0",
+      "discount": "$49.0"
+    },
+    {
+      "id": 3,
+      "image": "images/courses/courses-3.svg",
+      "title": "Determined-Poitras",
+      "heading": "Create an LMS Website with LearnPress",
+      "week": "2Weeks",
+      "student": "156 Students",
+      "level": "All levels",
+      "lesson": "20 Lessons",
+      "price": "$29.0",
+      "discount": "Free"
+    },
+    {
+      "id": 4,
+      "image": "images/courses/courses-4.svg",
+      "title": "Determined-Poitras",
+      "heading": "Create an LMS Website with LearnPress",
+      "week": "2Weeks",
+      "student": "156 Students",
+      "level": "All levels",
+      "lesson": "20 Lessons",
+      "price": "$29.0",
+      "discount": "Free"
+    },
+    {
+      "id": 5,
+      "image": "images/courses/courses-5.svg",
+      "title": "Determined-Poitras",
+      "heading": "Create an LMS Website with LearnPress",
+      "week": "2Weeks",
+      "student": "156 Students",
+      "level": "All levels",
+      "lesson": "20 Lessons",
+      "price": "$29.0",
+      "discount": "Free"
+    },
+    {
+      "id": 6,
+      "image": "images/courses/courses-6.svg",
+      "title": "Determined-Poitras",
+      "heading": "Create an LMS Website with LearnPress",
+      "week": "2Weeks",
+      "student": "156 Students",
+      "level": "All levels",
+      "lesson": "20 Lessons",
+      "price": "$29.0",
+      "discount": "Free"
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": 1,
+      "desc": "I must explain to you how all this mistaken . Tdea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound",
+      "name": "Jones Bee",
+      "type": "Design"
+    },
+    {
+      "id": 2,
+      "desc": "I must explain to you how all this mistaken . Tdea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound",
+      "name": "Roe Smith",
+      "type": "Development"
+    },
+    {
+      "id": 3,
+      "desc": "I must explain to you how all this mistaken . Tdea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound",
+      "name": "Davice Pan",
+      "type": "Design"
+    },
+    {
+      "id": 4,
+      "desc": "I must explain to you how all this mistaken . Tdea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound",
+      "name": "Alice Smith",
+      "type": "Design"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "image": "images/articles/article-1.svg",
+      "title": "Best LearnPress WordPress Theme Collection for 2023",
+      "time": "Jan 24, 22023",
+      "desc": "Looking for an amazing & well-functional LearnPress WordPress Theme?..."
+    },
+    {
+      "id": 2,
+      "image": "images/articles/article-2.svg",
+      "title": "Best LearnPress WordPress Theme Collection for 2023",
+      "time": "Jan 24, 22023",
+      "desc": "Looking for an amazing & well-functional LearnPress WordPress Theme?..."
+    },
+    {
+      "id": 3,
+      "image": "images/articles/article-3.svg",
+      "title": "Best LearnPress WordPress Theme Collection for 2023",
+      "time": "Jan 24, 22023",
+      "desc": "Looking for an amazing & well-functional LearnPress WordPress Theme?..."
+    }
+  ]
+}
