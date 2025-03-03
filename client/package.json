@@ -7,9 +7,22 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tailwindcss -i ./src/assets/css/input.css -o ./public/assets/css/output.css --watch",
+    "start": "live-server ./public",
+    "dev": "npx tsc ./src/assets/ts/app.ts --outDir ./public/assets/js --watch"
   },
   "dependencies": {
-    "sass": "^1.85.1"
+    "axios": "^1.8.1",
+    "client": "file:",
+    "live-server": "^1.2.2",
+    "sass": "^1.85.1",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.2",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^3.4.17"
   }
 }
