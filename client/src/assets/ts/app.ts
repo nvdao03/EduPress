@@ -24,6 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+const handleShow = (icon: HTMLDivElement, item: HTMLInputElement) => {
+  icon.addEventListener("click", () => {
+    if (item.type === "password") {
+      item.type = "text";
+    } else {
+      item.type = "password";
+    }
+  });
+};
+
 /*
   2. Page Register
 */
@@ -57,33 +67,39 @@ const handleButtonRegister = () => {
   };
 };
 
-const handleShowPassword = () => {
-  const password = document.getElementById("password") as HTMLInputElement;
-  const confirmPassword = document.getElementById("confirmPassword") as HTMLInputElement;
+const handleShowPasswordRegister = () => {
+  const inputPasswordRegister = document.getElementById("password") as HTMLInputElement;
+  const inputConfirmPassword = document.getElementById("confirmPassword") as HTMLInputElement;
 
-  const eyeIconPassWord = document.getElementById("eye-password") as HTMLDivElement;
-  const eyeIconConfirm = document.getElementById("eye-confirm") as HTMLDivElement;
+  const iconPasswordRegister = document.getElementById("eye-password") as HTMLDivElement;
+  const iconConfirmPassword = document.getElementById("eye-confirm") as HTMLDivElement;
 
-  eyeIconPassWord.addEventListener("click", () => {
-    if (password.type === "password") {
-      password.type = "text";
-    } else {
-      password.type = "password";
-    }
-  });
+  handleShow(iconPasswordRegister, inputPasswordRegister);
+  handleShow(iconConfirmPassword, inputConfirmPassword);
+};
 
-  eyeIconConfirm.addEventListener("click", () => {
-    if (confirmPassword.type === "password") {
-      confirmPassword.type = "text";
-    } else {
-      confirmPassword.type = "password";
-    }
-  });
+/*
+  3. Page Login
+*/
+const handleShowPasswordLogin = () => {
+  const inputPasswordLogin = document.getElementById("password-login") as HTMLInputElement;
+  const iconPasswordLogin = document.getElementById("eye-password-login") as HTMLDivElement;
+  handleShow(iconPasswordLogin, inputPasswordLogin);
 };
 
 const app = () => {
-  handleButtonRegister();
-  handleShowPassword();
+  // Current page - lấy ra đường dẫn. Chỉ thực thi các hàm tương ứng với trang hiện tại
+  const currentPage = window.location.pathname;
+
+  // indexOf() - Lấy ra một chuỗi con trong chuỗi gốc nếu có trả về vị trí tìm thấy đầu tiên của chuỗi con
+  if (currentPage.indexOf("register.html")) {
+    handleButtonRegister();
+    handleShowPasswordRegister();
+  }
+
+  if (currentPage.indexOf("login.html")) {
+    handleShowPasswordLogin();
+  }
 };
 
 app();

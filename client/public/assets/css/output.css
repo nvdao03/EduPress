@@ -556,8 +556,20 @@ video {
   display: none;
 }
 
+.fixed{
+  position: fixed;
+}
+
 .relative{
   position: relative;
+}
+
+.left-0{
+  left: 0px;
+}
+
+.top-0{
+  top: 0px;
 }
 
 .mb-8{
@@ -1045,6 +1057,10 @@ table {
 body {
   color: #000;
   font-family: "Poppins", sans-serif;
+}
+
+main {
+  padding-top: 110px;
 }
 
 .custom-container{

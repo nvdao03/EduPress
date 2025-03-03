@@ -21,6 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(error.message);
     });
 });
+var handleShow = function (icon, item) {
+    icon.addEventListener("click", function () {
+        if (item.type === "password") {
+            item.type = "text";
+        }
+        else {
+            item.type = "password";
+        }
+    });
+};
 /*
   2. Page Register
 */
@@ -50,30 +60,32 @@ var handleButtonRegister = function () {
         window.location.href = "./login.html";
     };
 };
-var handleShowPassword = function () {
-    var password = document.getElementById("password");
-    var confirmPassword = document.getElementById("confirmPassword");
-    var eyeIconPassWord = document.getElementById("eye-password");
-    var eyeIconConfirm = document.getElementById("eye-confirm");
-    eyeIconPassWord.addEventListener("click", function () {
-        if (password.type === "password") {
-            password.type = "text";
-        }
-        else {
-            password.type = "password";
-        }
-    });
-    eyeIconConfirm.addEventListener("click", function () {
-        if (confirmPassword.type === "password") {
-            confirmPassword.type = "text";
-        }
-        else {
-            confirmPassword.type = "password";
-        }
-    });
+var handleShowPasswordRegister = function () {
+    var inputPasswordRegister = document.getElementById("password");
+    var inputConfirmPassword = document.getElementById("confirmPassword");
+    var iconPasswordRegister = document.getElementById("eye-password");
+    var iconConfirmPassword = document.getElementById("eye-confirm");
+    handleShow(iconPasswordRegister, inputPasswordRegister);
+    handleShow(iconConfirmPassword, inputConfirmPassword);
+};
+/*
+  3. Page Login
+*/
+var handleShowPasswordLogin = function () {
+    var inputPasswordLogin = document.getElementById("password-login");
+    var iconPasswordLogin = document.getElementById("eye-password-login");
+    handleShow(iconPasswordLogin, inputPasswordLogin);
 };
 var app = function () {
-    handleButtonRegister();
-    handleShowPassword();
+    // Current page - lấy ra đường dẫn. Chỉ thực thi các hàm tương ứng với trang hiện tại
+    var currentPage = window.location.pathname;
+    // indexOf() - Lấy ra một chuỗi con trong chuỗi gốc nếu có trả về vị trí tìm thấy đầu tiên của chuỗi con
+    if (currentPage.indexOf("register.html")) {
+        handleButtonRegister();
+        handleShowPasswordRegister();
+    }
+    if (currentPage.indexOf("login.html")) {
+        handleShowPasswordLogin();
+    }
 };
 app();
