@@ -1,61 +1,61 @@
 {
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "image": "images/categories/design.svg",
       "title": "Art & Design",
       "description": "38 Courses"
     },
     {
-      "id": 2,
+      "id": "2",
       "image": "images/categories/development.svg",
       "title": "Development",
       "description": "38 Courses"
     },
     {
-      "id": 3,
+      "id": "3",
       "image": "images/categories/communiication.svg",
       "title": "Communiication",
       "description": "38 Courses"
     },
     {
-      "id": 4,
+      "id": "4",
       "image": "images/categories/videography.svg",
       "title": "Videography",
       "description": "38 Courses"
     },
     {
-      "id": 5,
+      "id": "5",
       "image": "images/categories/photography.svg",
       "title": "Photography",
       "description": "38 Courses"
     },
     {
-      "id": 6,
+      "id": "6",
       "image": "images/categories/marketing.svg",
       "title": "Marketing",
       "description": "38 Courses"
     },
     {
-      "id": 7,
+      "id": "7",
       "image": "images/categories/writing.svg",
       "title": "Content writing",
       "description": "38 Courses"
     },
     {
-      "id": 8,
+      "id": "8",
       "image": "images/categories/finace.svg",
       "title": "Finance",
       "description": "38 Courses"
     },
     {
-      "id": 9,
+      "id": "9",
       "image": "images/categories/science.svg",
       "title": "Science",
       "description": "38 Courses"
     },
     {
-      "id": 10,
+      "id": "10",
       "image": "images/categories/network.svg",
       "title": "Network",
       "description": "38 Courses"
@@ -63,7 +63,7 @@
   ],
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "image": "images/courses/courses-1.svg",
       "title": "Determined-Poitras",
       "heading": "Create an LMS Website with LearnPress",
@@ -77,7 +77,7 @@
       "discount": "Free"
     },
     {
-      "id": 2,
+      "id": "2",
       "image": "images/courses/courses-2.svg",
       "title": "Determined-Poitras",
       "heading": "Design a website with ThimPress",
@@ -91,7 +91,7 @@
       "studentIcon": "icons/courses/student.svg"
     },
     {
-      "id": 3,
+      "id": "3",
       "image": "images/courses/courses-3.svg",
       "title": "Determined-Poitras",
       "heading": "Create an LMS Website with LearnPress",
@@ -105,7 +105,7 @@
       "studentIcon": "icons/courses/student.svg"
     },
     {
-      "id": 4,
+      "id": "4",
       "image": "images/courses/courses-4.svg",
       "title": "Determined-Poitras",
       "heading": "Create an LMS Website with LearnPress",
@@ -119,7 +119,7 @@
       "studentIcon": "icons/courses/student.svg"
     },
     {
-      "id": 5,
+      "id": "5",
       "image": "images/courses/courses-5.svg",
       "title": "Determined-Poitras",
       "heading": "Create an LMS Website with LearnPress",
@@ -133,7 +133,7 @@
       "studentIcon": "icons/courses/student.svg"
     },
     {
-      "id": 6,
+      "id": "6",
       "image": "images/courses/courses-6.svg",
       "title": "Determined-Poitras",
       "heading": "Create an LMS Website with LearnPress",
@@ -149,25 +149,25 @@
   ],
   "feedbacks": [
     {
-      "id": 1,
+      "id": "1",
       "desc": "I must explain to you how all this mistaken . Tdea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound",
       "name": "Jones Bee",
       "type": "Design"
     },
     {
-      "id": 2,
+      "id": "2",
       "desc": "I must explain to you how all this mistaken . Tdea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound",
       "name": "Roe Smith",
       "type": "Development"
     },
     {
-      "id": 3,
+      "id": "3",
       "desc": "I must explain to you how all this mistaken . Tdea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound",
       "name": "Davice Pan",
       "type": "Design"
     },
     {
-      "id": 4,
+      "id": "4",
       "desc": "I must explain to you how all this mistaken . Tdea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound",
       "name": "Alice Smith",
       "type": "Design"
@@ -175,42 +175,42 @@
   ],
   "articles": [
     {
-      "id": 1,
+      "id": "1",
       "image": "images/articles/article-1.svg",
       "title": "Best LearnPress WordPress Theme Collection for 2023",
       "time": "Jan 24, 22023",
       "desc": "Looking for an amazing & well-functional LearnPress WordPress Theme?..."
     },
     {
-      "id": 2,
+      "id": "2",
       "image": "images/articles/article-2.svg",
       "title": "Best LearnPress WordPress Theme Collection for 2023",
       "time": "Jan 24, 22023",
       "desc": "Looking for an amazing & well-functional LearnPress WordPress Theme?..."
     },
     {
-      "id": 3,
+      "id": "3",
       "image": "images/articles/article-3.svg",
       "title": "Best LearnPress WordPress Theme Collection for 2023",
       "time": "Jan 24, 22023",
       "desc": "Looking for an amazing & well-functional LearnPress WordPress Theme?..."
     },
     {
-      "id": 4,
+      "id": "4",
       "image": "images/articles/article-4.svg",
       "title": "Best LearnPress WordPress Theme Collection for 2023",
       "time": "Jan 24, 22023",
       "desc": "Looking for an amazing & well-functional LearnPress WordPress Theme?..."
     },
     {
-      "id": 5,
+      "id": "5",
       "image": "images/articles/article-5.svg",
       "title": "Best LearnPress WordPress Theme Collection for 2023",
       "time": "Jan 24, 22023",
       "desc": "Looking for an amazing & well-functional LearnPress WordPress Theme?..."
     },
     {
-      "id": 6,
+      "id": "6",
       "image": "images/articles/article-6.svg",
       "title": "Best LearnPress WordPress Theme Collection for 2023",
       "time": "Jan 24, 22023",
@@ -219,52 +219,66 @@
   ],
   "faqs": [
     {
-      "id": 1,
+      "id": "1",
       "heading": "What is Royalty-Free Content?",
       "description": "Royalty-free content allows users to use it without paying ongoing fees after purchase.",
       "icon": "/icons/faqs/arr-bottom.svg"
     },
     {
-      "id": 2,
+      "id": "2",
       "heading": "How Do I Purchase a License?",
       "description": "To purchase a license, select your desired content, add it to your cart, and complete the checkout process.",
       "icon": "/icons/faqs/arr-bottom.svg"
     },
     {
-      "id": 3,
+      "id": "3",
       "heading": "Can I Use Images for Commercial Projects?",
       "description": "Yes, most royalty-free images can be used for commercial purposes, but check the license details for any restrictions.",
       "icon": "/icons/faqs/arr-bottom.svg"
     },
     {
-      "id": 4,
+      "id": "4",
       "heading": "Do Licenses Expire?",
       "description": "No, once you purchase a royalty-free license, you can use the content indefinitely without renewal fees.",
       "icon": "/icons/faqs/arr-bottom.svg"
     },
     {
-      "id": 5,
+      "id": "5",
       "heading": "What File Formats Are Available?",
       "description": "Files are typically available in JPG, PNG, and sometimes SVG or PSD formats, depending on the content.",
       "icon": "/icons/faqs/arr-bottom.svg"
     },
     {
-      "id": 6,
+      "id": "6",
       "heading": "Can I Resell Purchased Content?",
       "description": "No, you cannot resell, redistribute, or claim ownership of royalty-free content.",
       "icon": "/icons/faqs/arr-bottom.svg"
     },
     {
-      "id": 7,
+      "id": "7",
       "heading": "Is Attribution Required?",
       "description": "Most royalty-free licenses do not require attribution, but always check the specific license terms.",
       "icon": "/icons/faqs/arr-bottom.svg"
     },
     {
-      "id": 8,
+      "id": "8",
       "heading": "What Happens If I Use Content Without a License?",
       "description": "Using content without a valid license may result in legal action or copyright claims against you.",
       "icon": "/icons/faqs/arr-bottom.svg"
+    }
+  ],
+  "users": [
+    {
+      "id": "57b9",
+      "email": "admin@gmai.com",
+      "username": "Văn Đạo",
+      "password": "1"
+    },
+    {
+      "id": "1ac8",
+      "email": "nvdao003@gmail.com",
+      "username": "admin",
+      "password": "1"
     }
   ]
 }

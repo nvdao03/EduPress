@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-// Load data header, footer
+// => Load data header, footer
 document.addEventListener("DOMContentLoaded", function () {
     var header = document.getElementById("header");
     var footer = document.getElementById("footer");
@@ -55,8 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(function (error) {
         console.log(error.message);
     });
+    handleSubmitLogin();
+    handleButtonRegister();
 });
-// Gọi API
+// => Start gọi API
 var baseUrl = "http://localhost:4000";
 var getCategoriesPageHome = function () { return __awaiter(_this, void 0, void 0, function () {
     var response, data, categoriesContainer_1, error_1;
@@ -289,17 +291,7 @@ var getFaqsListPageFaqs = function () { return __awaiter(_this, void 0, void 0, 
         }
     });
 }); };
-var handleShow = function (icon, item) {
-    icon.addEventListener("click", function () {
-        if (item.type === "password") {
-            item.type = "text";
-        }
-        else {
-            item.type = "password";
-        }
-    });
-};
-// 2. Page Register
+// => Xử lý sự các sự kiện
 var handleButtonRegister = function () {
     var btnRegister = document.getElementById("btn-register");
     var email = document.getElementById("email");
@@ -322,9 +314,123 @@ var handleButtonRegister = function () {
             }
         });
     });
-    btnRegister.onclick = function () {
-        window.location.href = "./login.html";
-    };
+};
+var handleSubmitPageRegister = function () { return __awaiter(_this, void 0, void 0, function () {
+    var email_1, username_1, password_1, confirmPassword_1, formRegister, linkRegister, listUsers_1, response, data, error_7;
+    var _this = this;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 3, , 4]);
+                email_1 = document.getElementById("email");
+                username_1 = document.getElementById("username");
+                password_1 = document.getElementById("password");
+                confirmPassword_1 = document.getElementById("confirmPassword");
+                formRegister = document.getElementById("form-register");
+                linkRegister = document.getElementById("link-register");
+                listUsers_1 = [];
+                return [4 /*yield*/, fetch("".concat(baseUrl, "/users"))];
+            case 1:
+                response = _a.sent();
+                return [4 /*yield*/, response.json()];
+            case 2:
+                data = _a.sent();
+                if (data)
+                    listUsers_1 = data;
+                formRegister.addEventListener("submit", function (event) { return __awaiter(_this, void 0, void 0, function () {
+                    var formData, isUser, registerResponse, error_8;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                event.preventDefault();
+                                formData = {
+                                    email: email_1.value.trim(),
+                                    username: username_1.value.trim(),
+                                    password: password_1.value,
+                                    confirmPassword: confirmPassword_1.value,
+                                };
+                                isUser = listUsers_1.some(function (user) { return user.username === formData.username; });
+                                if (isUser) {
+                                    alert("Tên tài khoản đã có người sử dụng");
+                                    return [2 /*return*/];
+                                }
+                                _a.label = 1;
+                            case 1:
+                                _a.trys.push([1, 3, , 4]);
+                                return [4 /*yield*/, fetch("".concat(baseUrl, "/users"), {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify({
+                                            email: formData.email,
+                                            username: formData.username,
+                                            password: formData.password,
+                                        }),
+                                    })];
+                            case 2:
+                                registerResponse = _a.sent();
+                                if (registerResponse.ok) {
+                                    window.location.href = "./login.html";
+                                    alert("Đăng ký tài khoản thành công");
+                                }
+                                return [3 /*break*/, 4];
+                            case 3:
+                                error_8 = _a.sent();
+                                console.error("Error registering user:", error_8);
+                                alert("Đăng ký thất bại, vui lòng thử lại");
+                                return [3 /*break*/, 4];
+                            case 4: return [2 /*return*/];
+                        }
+                    });
+                }); }, { once: true });
+                return [3 /*break*/, 4];
+            case 3:
+                error_7 = _a.sent();
+                console.error("Error fetching users:", error_7);
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+var handleSubmitLogin = function () {
+    var emailOrUserName = document.getElementById("email-login");
+    var password = document.getElementById("password-login");
+    var formLogin = document.getElementById("form-login");
+    var listUsers = [];
+    fetch("".concat(baseUrl, "/users"))
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+        listUsers = data;
+    });
+    formLogin.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var formData = {
+            emailOrUserName: emailOrUserName.value.trim(),
+            password: password.value.trim(),
+        };
+        var isUser = listUsers.some(function (user) {
+            return (user.username === formData.emailOrUserName || user.email === formData.emailOrUserName) &&
+                user.password === formData.password;
+        });
+        if (isUser) {
+            window.location.href = "./index.html";
+            alert("Đăng nhập thành công");
+        }
+        else {
+            alert("Tài khoản hoặc mật khẩu không chính xác");
+        }
+    });
+};
+var handleShow = function (icon, item) {
+    icon.addEventListener("click", function () {
+        if (item.type === "password") {
+            item.type = "text";
+        }
+        else {
+            item.type = "password";
+        }
+    });
 };
 var handleShowPasswordRegister = function () {
     var inputPasswordRegister = document.getElementById("password");
@@ -334,7 +440,6 @@ var handleShowPasswordRegister = function () {
     handleShow(iconPasswordRegister, inputPasswordRegister);
     handleShow(iconConfirmPassword, inputConfirmPassword);
 };
-// 3. Login Page
 var handleShowPasswordLogin = function () {
     var inputPasswordLogin = document.getElementById("password-login");
     var iconPasswordLogin = document.getElementById("eye-password-login");
@@ -366,26 +471,24 @@ var handleShowFaqs = function () {
     //   });
     // });
 };
-var app = function () { return __awaiter(_this, void 0, void 0, function () {
-    var currentPage;
-    return __generator(this, function (_a) {
-        currentPage = window.location.pathname;
-        // indexOf() - Lấy ra một chuỗi con trong chuỗi gốc nếu có trả về vị trí tìm thấy đầu tiên của chuỗi con
-        if (currentPage.indexOf("register.html")) {
-            handleButtonRegister();
-            handleShowPasswordRegister();
-        }
-        if (currentPage.indexOf("login.html")) {
-            handleShowPasswordLogin();
-        }
-        return [2 /*return*/];
-    });
-}); };
+// => Đưa các sự kiện vào 1 function rồi gọi 1 thể
+var app = function () {
+    handleButtonRegister();
+    handleShowPasswordRegister();
+    handleSubmitPageRegister();
+    handleButtonRegister();
+    handleShowPasswordLogin();
+};
+// => Get API đưa ra ngoài để ưu tiên gọi HTML trước mới gọi đến các sự kiện
+// Page Home
 getCategoriesPageHome();
 getCoursesPageHome();
 getFeedbacksHome();
 getArticlesHome();
-getCoursesPageCourses();
+// Page Blog
 getArticlesPageBlog();
+// Page Courses
+getCoursesPageCourses();
+// Page FAQs
 getFaqsListPageFaqs();
 app();

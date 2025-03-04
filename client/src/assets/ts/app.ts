@@ -42,7 +42,15 @@ interface Faqs {
   icon: string;
 }
 
-// Load data header, footer
+interface User {
+  id: number;
+  username: string;
+  password: string;
+  email?: string;
+  confirmPassword?: string;
+}
+
+// => Load data header, footer
 document.addEventListener("DOMContentLoaded", () => {
   const header: HTMLElement | any = document.getElementById("header");
   const footer: HTMLElement | any = document.getElementById("footer");
@@ -64,9 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => {
       console.log(error.message);
     });
+
+  handleSubmitLogin();
+  handleButtonRegister();
 });
 
-// Gọi API
+// => Start gọi API
 const baseUrl = "http://localhost:4000";
 
 const getCategoriesPageHome = async () => {
@@ -372,17 +383,7 @@ const getFaqsListPageFaqs = async () => {
   handleShowFaqs();
 };
 
-const handleShow = (icon: HTMLDivElement, item: HTMLInputElement) => {
-  icon.addEventListener("click", () => {
-    if (item.type === "password") {
-      item.type = "text";
-    } else {
-      item.type = "password";
-    }
-  });
-};
-
-// 2. Page Register
+// => Xử lý sự các sự kiện
 const handleButtonRegister = () => {
   const btnRegister = document.getElementById("btn-register") as HTMLButtonElement;
   const email = document.getElementById("email") as HTMLInputElement;
@@ -407,10 +408,115 @@ const handleButtonRegister = () => {
       }
     });
   });
+};
 
-  btnRegister.onclick = () => {
-    window.location.href = "./login.html";
-  };
+const handleSubmitPageRegister = async () => {
+  try {
+    const email = document.getElementById("email") as HTMLInputElement;
+    const username = document.getElementById("username") as HTMLInputElement;
+    const password = document.getElementById("password") as HTMLInputElement;
+    const confirmPassword = document.getElementById("confirmPassword") as HTMLInputElement;
+    const formRegister = document.getElementById("form-register") as HTMLFormElement;
+    const linkRegister = document.getElementById("link-register") as HTMLElement;
+
+    let listUsers: User[] = [];
+    const response = await fetch(`${baseUrl}/users`);
+    const data: User[] = await response.json();
+
+    if (data) listUsers = data;
+
+    formRegister.addEventListener(
+      "submit",
+      async (event) => {
+        event.preventDefault();
+
+        const formData = {
+          email: email.value.trim(),
+          username: username.value.trim(),
+          password: password.value,
+          confirmPassword: confirmPassword.value,
+        };
+
+        const isUser = listUsers.some((user) => user.username === formData.username);
+
+        if (isUser) {
+          alert("Tên tài khoản đã có người sử dụng");
+          return;
+        }
+
+        try {
+          const registerResponse = await fetch(`${baseUrl}/users`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: formData.email,
+              username: formData.username,
+              password: formData.password,
+            }),
+          });
+
+          if (registerResponse.ok) {
+            window.location.href = "./login.html";
+            alert("Đăng ký tài khoản thành công");
+          }
+        } catch (error) {
+          console.error("Error registering user:", error);
+          alert("Đăng ký thất bại, vui lòng thử lại");
+        }
+      },
+      { once: true },
+    );
+  } catch (error) {
+    console.error("Error fetching users:", error);
+  }
+};
+
+const handleSubmitLogin = () => {
+  const emailOrUserName = document.getElementById("email-login") as HTMLInputElement;
+  const password = document.getElementById("password-login") as HTMLInputElement;
+  const formLogin = document.getElementById("form-login") as HTMLFormElement;
+
+  let listUsers: User[] = [];
+
+  fetch(`${baseUrl}/users`)
+    .then((response) => response.json())
+    .then((data) => {
+      listUsers = data;
+    });
+
+  formLogin.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = {
+      emailOrUserName: emailOrUserName.value.trim(),
+      password: password.value.trim(),
+    };
+
+    const isUser = listUsers.some(
+      (user) =>
+        (user.username === formData.emailOrUserName || user.email === formData.emailOrUserName) &&
+        user.password === formData.password,
+    );
+
+    if (isUser) {
+      window.location.href = "./index.html";
+      alert("Đăng nhập thành công");
+    } else {
+      alert("Tài khoản hoặc mật khẩu không chính xác");
+    }
+  });
+};
+
+const handleShow = (icon: HTMLDivElement, item: HTMLInputElement) => {
+  icon.addEventListener("click", () => {
+    if (item.type === "password") {
+      item.type = "text";
+    } else {
+      item.type = "password";
+    }
+  });
 };
 
 const handleShowPasswordRegister = () => {
@@ -424,7 +530,6 @@ const handleShowPasswordRegister = () => {
   handleShow(iconConfirmPassword, inputConfirmPassword);
 };
 
-// 3. Login Page
 const handleShowPasswordLogin = () => {
   const inputPasswordLogin = document.getElementById("password-login") as HTMLInputElement;
   const iconPasswordLogin = document.getElementById("eye-password-login") as HTMLDivElement;
@@ -458,26 +563,29 @@ const handleShowFaqs = () => {
   // });
 };
 
-const app = async () => {
-  // Current page - lấy ra đường dẫn. Chỉ thực thi các hàm tương ứng với trang hiện tại
-  const currentPage = window.location.pathname;
-
-  // indexOf() - Lấy ra một chuỗi con trong chuỗi gốc nếu có trả về vị trí tìm thấy đầu tiên của chuỗi con
-  if (currentPage.indexOf("register.html")) {
-    handleButtonRegister();
-    handleShowPasswordRegister();
-  }
-
-  if (currentPage.indexOf("login.html")) {
-    handleShowPasswordLogin();
-  }
+// => Đưa các sự kiện vào 1 function rồi gọi 1 thể
+const app = () => {
+  handleButtonRegister();
+  handleShowPasswordRegister();
+  handleSubmitPageRegister();
+  handleButtonRegister();
+  handleShowPasswordLogin();
 };
 
+// => Get API đưa ra ngoài để ưu tiên gọi HTML trước mới gọi đến các sự kiện
+// Page Home
 getCategoriesPageHome();
 getCoursesPageHome();
 getFeedbacksHome();
 getArticlesHome();
-getCoursesPageCourses();
+
+// Page Blog
 getArticlesPageBlog();
+
+// Page Courses
+getCoursesPageCourses();
+
+// Page FAQs
 getFaqsListPageFaqs();
+
 app();
