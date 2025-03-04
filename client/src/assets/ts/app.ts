@@ -222,6 +222,73 @@ const getArticlesHome = async () => {
   }
 };
 
+const getCoursesPageCourses = async () => {
+  try {
+    const response = await fetch(`${baseUrl}/courses`);
+    const data: CoursesHome[] = await response.json();
+    const coursesContainer = document.getElementById("courses-courses") as HTMLElement;
+    let tick: boolean = false;
+
+    if (!coursesContainer) return;
+
+    coursesContainer.innerHTML = "";
+
+    data.map((course) => {
+      const divCourse = document.createElement("div");
+      if (course.discount !== "Free") {
+        tick = true;
+      } else {
+        tick = false;
+      }
+      divCourse.className =
+        "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
+      divCourse.innerHTML = `
+        <div>
+                <span
+                  class="absolute left-5 top-5 flex items-center justify-center rounded-[8px] bg-black px-3 py-2 font-medium text-[#fff]"
+                >
+                  Photography
+                </span>
+                <img
+                  src=${`http://localhost:4000/${course.image}`}
+                  class="rounded-bl-none rounded-br-none rounded-tl-[20px] rounded-tr-[20px]"
+                />
+              </div>
+              <div class="p-[20px]">
+                <p class="font-normal leading-[24px] text-black"><span class="text-[#555555] font-normal text-sm">by</span> ${course.title}</p>
+                <h3 class="mt-[12px] text-[18px] font-semibold leading-[24px]">
+                  ${course.title}
+                </h3>
+                <div class="mt-4 flex items-center gap-x-[24px] border-b border-solid border-[#EAEAEA] pb-4">
+                  <div class="flex items-center gap-x-2">
+                    <img src=${`http://localhost:4000/${course.weekIcon}`} alt="" />
+                    <span class="font-normal leading-[24px] text-[#555555]">${course.week}</span>
+                  </div>
+                  <div class="flex items-center gap-x-2">
+                    <img src=${`http://localhost:4000/${course.studentIcon}`} alt="" />
+                    <span class="font-normal leading-[24px] text-[#555555]">${course.student}</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between pt-4">
+                  <div class="flex items-center gap-x-2">
+                    <span class="font-normal leading-[27px] text-[#9D9D9D] line-through">${course.price}</span>
+                    <span class="font-medium leading-[27px] text-[#55BE24] ${tick && "text-[#F51A1A]"}">${course.discount}</span>
+                  </div>
+                  <a
+                    href="#!"
+                    class="font-medium leading-[27px] transition-all duration-300 ease-in-out hover:underline"
+                    >View More</a
+                  >
+                </div>
+              </div>
+      `;
+      coursesContainer.appendChild(divCourse);
+    });
+  } catch (error) {
+    console.error("Error fetching courses");
+  }
+};
+
 const handleShow = (icon: HTMLDivElement, item: HTMLInputElement) => {
   icon.addEventListener("click", () => {
     if (item.type === "password") {
@@ -305,4 +372,5 @@ getCategoriesPageHome();
 getCoursesPageHome();
 getFeedbacksHome();
 getArticlesHome();
+getCoursesPageCourses();
 app();

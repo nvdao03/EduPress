@@ -192,6 +192,45 @@ var getArticlesHome = function () { return __awaiter(_this, void 0, void 0, func
         }
     });
 }); };
+var getCoursesPageCourses = function () { return __awaiter(_this, void 0, void 0, function () {
+    var response, data, coursesContainer_2, tick_2, error_5;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 3, , 4]);
+                return [4 /*yield*/, fetch("".concat(baseUrl, "/courses"))];
+            case 1:
+                response = _a.sent();
+                return [4 /*yield*/, response.json()];
+            case 2:
+                data = _a.sent();
+                coursesContainer_2 = document.getElementById("courses-courses");
+                tick_2 = false;
+                if (!coursesContainer_2)
+                    return [2 /*return*/];
+                coursesContainer_2.innerHTML = "";
+                data.map(function (course) {
+                    var divCourse = document.createElement("div");
+                    if (course.discount !== "Free") {
+                        tick_2 = true;
+                    }
+                    else {
+                        tick_2 = false;
+                    }
+                    divCourse.className =
+                        "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
+                    divCourse.innerHTML = "\n        <div>\n                <span\n                  class=\"absolute left-5 top-5 flex items-center justify-center rounded-[8px] bg-black px-3 py-2 font-medium text-[#fff]\"\n                >\n                  Photography\n                </span>\n                <img\n                  src=".concat("http://localhost:4000/".concat(course.image), "\n                  class=\"rounded-bl-none rounded-br-none rounded-tl-[20px] rounded-tr-[20px]\"\n                />\n              </div>\n              <div class=\"p-[20px]\">\n                <p class=\"font-normal leading-[24px] text-black\"><span class=\"text-[#555555] font-normal text-sm\">by</span> ").concat(course.title, "</p>\n                <h3 class=\"mt-[12px] text-[18px] font-semibold leading-[24px]\">\n                  ").concat(course.title, "\n                </h3>\n                <div class=\"mt-4 flex items-center gap-x-[24px] border-b border-solid border-[#EAEAEA] pb-4\">\n                  <div class=\"flex items-center gap-x-2\">\n                    <img src=").concat("http://localhost:4000/".concat(course.weekIcon), " alt=\"\" />\n                    <span class=\"font-normal leading-[24px] text-[#555555]\">").concat(course.week, "</span>\n                  </div>\n                  <div class=\"flex items-center gap-x-2\">\n                    <img src=").concat("http://localhost:4000/".concat(course.studentIcon), " alt=\"\" />\n                    <span class=\"font-normal leading-[24px] text-[#555555]\">").concat(course.student, "</span>\n                  </div>\n                </div>\n                <div class=\"flex items-center justify-between pt-4\">\n                  <div class=\"flex items-center gap-x-2\">\n                    <span class=\"font-normal leading-[27px] text-[#9D9D9D] line-through\">").concat(course.price, "</span>\n                    <span class=\"font-medium leading-[27px] text-[#55BE24] ").concat(tick_2 && "text-[#F51A1A]", "\">").concat(course.discount, "</span>\n                  </div>\n                  <a\n                    href=\"#!\"\n                    class=\"font-medium leading-[27px] transition-all duration-300 ease-in-out hover:underline\"\n                    >View More</a\n                  >\n                </div>\n              </div>\n      ");
+                    coursesContainer_2.appendChild(divCourse);
+                });
+                return [3 /*break*/, 4];
+            case 3:
+                error_5 = _a.sent();
+                console.error("Error fetching courses");
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
 var handleShow = function (icon, item) {
     icon.addEventListener("click", function () {
         if (item.type === "password") {
@@ -262,4 +301,5 @@ getCategoriesPageHome();
 getCoursesPageHome();
 getFeedbacksHome();
 getArticlesHome();
+getCoursesPageCourses();
 app();
