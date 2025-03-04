@@ -16,6 +16,7 @@
     "client": "file:",
     "live-server": "^1.2.2",
     "sass": "^1.85.1",
+    "swiper": "^11.2.4",
     "typescript": "^5.8.2"
   },
   "devDependencies": {

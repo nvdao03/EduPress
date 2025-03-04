@@ -149,5 +149,25 @@ main {
 }
 
 .custom-container {
-  @apply mx-auto max-w-[1170px] px-[30px];
+  @apply mx-auto max-w-[1290px] px-[30px];
+}
+
+.custom-hover-btn {
+  @apply transition-all duration-300 ease-in-out hover:opacity-80;
+}
+
+.custom-h2-heading {
+  @apply text-[32px] font-semibold leading-[38px];
+}
+
+.custom-h2-sub-heading {
+  @apply mt-3 font-normal leading-[27px];
+}
+
+.custom-transition-all {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.custom-button-primary {
+  @apply flex items-center justify-center rounded-[24px] bg-[#FF782D] px-[24px] py-[10px] font-medium leading-[27px] text-white transition-all duration-300 ease-in-out hover:opacity-50;
 }

@@ -4,11 +4,243 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduPress</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="./assets/css/output.css" />
   </head>
   <body>
-    <div id="header" class="fixed left-0 top-0 w-full"></div>
-    <main></main>
+    <div id="header" class="fixed left-0 top-0 z-[5] w-full border-b border-solid border-[#ccc] bg-white"></div>
+    <main>
+      <!-- Banner -->
+      <div class="relative bg-[linear-gradient(98deg,_#FFF5BE_0%,_#D0F7EA_97.73%)]">
+        <img src="./assets/images/home/banner/banner-decor-left.svg" class="absolute bottom-0 left-0" />
+        <img src="./assets/images/home/banner/banner-decor-right.svg" class="absolute right-0 top-0" />
+        <div class="custom-container relative flex items-center overflow-hidden py-[219px]">
+          <!-- Item left -->
+          <div class="w-[40%]">
+            <h1 class="text-[48px] font-semibold leading-[57px]">Build Skills with Online Course</h1>
+            <p class="mb-[20px] mt-[24px] font-normal leading-[27px] text-[#555555]">
+              We denounce with righteous indignation and dislike men who are so beguiled and demoralized that cannot
+              trouble.
+            </p>
+            <button
+              class="custom-hover-btn flex items-center justify-center rounded-[24px] bg-[#FF782D] px-[24px] py-[10px] font-medium leading-[27px] text-[#fff]"
+            >
+              Posts comment
+            </button>
+          </div>
+          <!-- Item right -->
+          <div class="">
+            <img
+              src="./assets/images/home/banner/banner-img.png"
+              alt=""
+              class="absolute right-0 top-0 z-[2] ml-auto h-full"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="pt-[90px]">
+        <div class="custom-container">
+          <!-- Row top -->
+          <div class="flex w-full items-center justify-between">
+            <div>
+              <h2 class="custom-h2-heading">Top Categories</h2>
+              <p class="custom-h2-sub-heading">Explore our Popular Categories</p>
+            </div>
+            <button
+              type="button"
+              class="flex items-center justify-center rounded-[24px] border-[2px] border-solid border-[#9D9D9D] px-[24px] py-[10px] font-medium leading-[27px] text-[#000] transition-all duration-300 ease-in-out hover:border-[#FF782D] hover:bg-[#FF782D] hover:text-[#fff]"
+            >
+              All Categories
+            </button>
+          </div>
+          <!-- Row bottom -->
+          <div id="home-categories" class="mt-[60px] grid grid-cols-5 gap-[30px]"></div>
+        </div>
+      </div>
+
+      <!-- Courses -->
+      <div class="pt-[90px]">
+        <div class="custom-container">
+          <!-- Row top -->
+          <div class="flex w-full items-center justify-between">
+            <div>
+              <h2 class="custom-h2-heading">Featured courses</h2>
+              <p class="custom-h2-sub-heading">Explore our Popular Categories</p>
+            </div>
+            <button
+              type="button"
+              class="flex items-center justify-center rounded-[24px] border-[2px] border-solid border-[#9D9D9D] px-[24px] py-[10px] font-medium leading-[27px] text-[#000] transition-all duration-300 ease-in-out hover:border-[#FF782D] hover:bg-[#FF782D] hover:text-[#fff]"
+            >
+              All Courses
+            </button>
+          </div>
+          <!-- Row bottom -->
+          <div id="home-courses" class="mt-[60px] grid grid-cols-3 gap-[30px]"></div>
+        </div>
+      </div>
+
+      <!-- LearnPress -->
+      <div class="pt-[90px]">
+        <div class="custom-container rounded-[24px] bg-[linear-gradient(98deg,_#FFF5BE_0%,_#D0F7EA_97.73%)] py-[55px]">
+          <div class="relative flex justify-center">
+            <div class="w-[34%] text-center">
+              <p class="mb-3 font-semibold leading-[19px] text-[#555555]">GET MORE POWER FROM</p>
+              <h2 class="custom-h2-heading">LearnPress Add-Ons</h2>
+              <p class="mt-[24px] font-normal leading-[27px]">
+                The next level of LearnPress - LMS WordPress Plugin. More Powerful, Flexible and Magical Inside.
+              </p>
+              <button class="custom-button-primary mx-auto mt-[20px]">Explorer course</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quantity -->
+      <div class="pt-[90px]">
+        <div class="custom-container grid grid-cols-4 gap-x-[30px]">
+          <div class="-ml-[30px] rounded-[20px] bg-[#F5F5F5] px-[75px] py-[50px] text-center">
+            <span class="mb-4 block text-[32px] font-semibold leading-[38px] text-[#FF782D]">25K+</span>
+            <span class="block font-medium leading-[27px] text-black">Active Students</span>
+          </div>
+          <div class="rounded-[20px] bg-[#F5F5F5] px-[75px] py-[50px] text-center">
+            <span class="mb-4 block text-[32px] font-semibold leading-[38px] text-[#FF782D]">899</span>
+            <span class="block font-medium leading-[27px] text-black">Total Courses</span>
+          </div>
+          <div class="rounded-[20px] bg-[#F5F5F5] px-[75px] py-[50px] text-center">
+            <span class="mb-4 block text-[32px] font-semibold leading-[38px] text-[#FF782D]">158</span>
+            <span class="block font-medium leading-[27px] text-black">Instructor</span>
+          </div>
+          <div class="-mr-[30px] rounded-[20px] bg-[#F5F5F5] px-[75px] py-[50px] text-center">
+            <span class="mb-4 block text-[32px] font-semibold leading-[38px] text-[#FF782D]">100%</span>
+            <span class="block font-medium leading-[27px] text-black">Satisfaction rate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LearnPress LMS  -->
+      <div class="pt-[90px]">
+        <div class="custom-container flex items-center justify-between">
+          <div>
+            <img
+              src="./assets/images/home/learnpress/learn-press-img.svg"
+              alt="Grow us your skill with LearnPress LMS"
+            />
+          </div>
+          <div class="w-[40%]">
+            <h2 class="custom-h2-heading">Grow us your skill with LearnPress LMS</h2>
+            <p class="custom-h2-sub-heading text-[#555555]">
+              We denounce with righteous indignation and dislike men who are so beguiled and demoralized that cannot
+              trouble.
+            </p>
+            <ul class="mt-[20px]">
+              <li>
+                <a href="#!" class="flex items-center gap-x-2">
+                  <img src="./assets/icons/success.svg" />
+                  Certification
+                </a>
+              </li>
+              <li>
+                <a href="#!" class="mt-[12px] flex items-center gap-x-2">
+                  <img src="./assets/icons/success.svg" />
+                  Certification
+                </a>
+              </li>
+              <li>
+                <a href="#!" class="mt-[12px] flex items-center gap-x-2">
+                  <img src="./assets/icons/success.svg" />
+                  Certification
+                </a>
+              </li>
+              <li>
+                <a href="#!" class="mt-[12px] flex items-center gap-x-2">
+                  <img src="./assets/icons/success.svg" />
+                  Certification
+                </a>
+              </li>
+            </ul>
+            <button class="custom-button-primary mt-[20px] hover:opacity-80">Explorer course</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wordpress Theme -->
+      <div class="pt-[90px]">
+        <div class="custom-container rounded-[20px] bg-[linear-gradient(93deg,_#FEB6B6_0%,_#B7E1FF_100%)] py-[60px]">
+          <div class="relative flex justify-center">
+            <div class="text-center">
+              <p class="mb-3 font-semibold leading-[19px] text-[#555555]">PROVIDING AMAZING</p>
+              <h2 class="custom-h2-heading">Education Wordpress Theme</h2>
+              <p class="mt-[24px] font-normal leading-[27px]">
+                The next level of LMS WordPress Theme. Learn anytime and anywhere.
+              </p>
+              <button class="custom-button-primary mx-auto mt-[20px] hover:opacity-80">Explorer course</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feeback -->
+      <div class="pt-[90px]">
+        <div class="custom-container">
+          <h2 class="custom-h2-heading text-center">Student feedbacks</h2>
+          <p class="mt-[24px] text-center font-normal leading-[27px]">What Students Say About Academy LMS</p>
+          <div id="feedback-container" class="mt-[50px] grid grid-cols-4 gap-x-[30px]"></div>
+        </div>
+      </div>
+
+      <!-- Academy -->
+      <div class="pt-[90px]">
+        <div class="custom-container">
+          <div
+            class="flex items-center justify-between rounded-[24px] bg-[linear-gradient(98deg,_#FFF5BE_0%,_#D0F7EA_97.73%)] px-[50px] py-[65px]"
+          >
+            <div class="flex items-center gap-x-[32px]">
+              <div class="flex items-center justify-center rounded-[50%] bg-white px-[30px] py-[24px]">
+                <img src="./assets/images/home/academy/student.svg" alt="" />
+              </div>
+              <h3 class="text-[20px] font-semibold leading-[24px]">Let's Start With Academy LMS</h3>
+            </div>
+            <div class="flex items-center gap-x-[20px]">
+              <button
+                class="rounded-[24px] border-[2px] border-solid border-[#FF782D] bg-transparent px-[24px] py-[10px] text-[18px] text-[#FF782D]"
+              >
+                I'm a student
+              </button>
+              <button class="custom-button-primary">Become an Instructor</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Articles -->
+      <div class="py-[90px]">
+        <div class="custom-container">
+          <!-- Row top -->
+          <div class="flex w-full items-center justify-between">
+            <div>
+              <h2 class="custom-h2-heading">Latest articles</h2>
+              <p class="custom-h2-sub-heading">Explore our Popular Categories</p>
+            </div>
+            <button
+              type="button"
+              class="flex items-center justify-center rounded-[24px] border-[2px] border-solid border-[#9D9D9D] px-[24px] py-[10px] font-medium leading-[27px] text-[#000] transition-all duration-300 ease-in-out hover:border-[#FF782D] hover:bg-[#FF782D] hover:text-[#fff]"
+            >
+              All Articles
+            </button>
+          </div>
+          <!-- Row bottom -->
+          <div id="home-articles" class="mt-[60px] grid grid-cols-3 gap-[30px]">
+            <div
+              class="relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="footer"></div>
     <script src="./assets/js/app.js"></script>
   </body>
 </html>

@@ -44,7 +44,7 @@
     },
     {
       "id": 8,
-      "image": "images/categories/finance.svg",
+      "image": "images/categories/finace.svg",
       "title": "Finance",
       "description": "38 Courses"
     },
@@ -68,7 +68,9 @@
       "title": "Determined-Poitras",
       "heading": "Create an LMS Website with LearnPress",
       "week": "2Weeks",
+      "weekIcon": "icons/courses/week.svg",
       "student": "156 Students",
+      "studentIcon": "icons/courses/student.svg",
       "level": "All levels",
       "lesson": "20 Lessons",
       "price": "$29.0",
@@ -84,7 +86,9 @@
       "level": "All levels",
       "lesson": "20 Lessons",
       "price": "$59.0",
-      "discount": "$49.0"
+      "discount": "$49.0",
+      "weekIcon": "icons/courses/week.svg",
+      "studentIcon": "icons/courses/student.svg"
     },
     {
       "id": 3,
@@ -96,7 +100,9 @@
       "level": "All levels",
       "lesson": "20 Lessons",
       "price": "$29.0",
-      "discount": "Free"
+      "discount": "Free",
+      "weekIcon": "icons/courses/week.svg",
+      "studentIcon": "icons/courses/student.svg"
     },
     {
       "id": 4,
@@ -108,7 +114,9 @@
       "level": "All levels",
       "lesson": "20 Lessons",
       "price": "$29.0",
-      "discount": "Free"
+      "discount": "Free",
+      "weekIcon": "icons/courses/week.svg",
+      "studentIcon": "icons/courses/student.svg"
     },
     {
       "id": 5,
@@ -120,7 +128,9 @@
       "level": "All levels",
       "lesson": "20 Lessons",
       "price": "$29.0",
-      "discount": "Free"
+      "discount": "Free",
+      "weekIcon": "icons/courses/week.svg",
+      "studentIcon": "icons/courses/student.svg"
     },
     {
       "id": 6,
@@ -132,7 +142,9 @@
       "level": "All levels",
       "lesson": "20 Lessons",
       "price": "$29.0",
-      "discount": "Free"
+      "discount": "Free",
+      "weekIcon": "icons/courses/week.svg",
+      "studentIcon": "icons/courses/student.svg"
     }
   ],
   "feedbacks": [
