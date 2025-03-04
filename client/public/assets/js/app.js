@@ -176,7 +176,7 @@ var getArticlesHome = function () { return __awaiter(_this, void 0, void 0, func
                 if (!articleContainer_1)
                     return [2 /*return*/];
                 articleContainer_1.innerHTML = "";
-                data.map(function (article) {
+                data.slice(0, 3).map(function (article) {
                     var divArticle = document.createElement("div");
                     divArticle.className =
                         "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
@@ -226,6 +226,38 @@ var getCoursesPageCourses = function () { return __awaiter(_this, void 0, void 0
             case 3:
                 error_5 = _a.sent();
                 console.error("Error fetching courses");
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+var getArticlesPageBlog = function () { return __awaiter(_this, void 0, void 0, function () {
+    var reponse, data, articleContainer_2, error_6;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 3, , 4]);
+                return [4 /*yield*/, fetch("".concat(baseUrl, "/articles"))];
+            case 1:
+                reponse = _a.sent();
+                return [4 /*yield*/, reponse.json()];
+            case 2:
+                data = _a.sent();
+                articleContainer_2 = document.getElementById("blog-articles");
+                if (!articleContainer_2)
+                    return [2 /*return*/];
+                articleContainer_2.innerHTML = "";
+                data.map(function (article) {
+                    var divArticle = document.createElement("div");
+                    divArticle.className =
+                        "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
+                    divArticle.innerHTML = "\n        <div>\n                <img\n                  src=".concat("http://localhost:4000/".concat(article.image), "\n                  class=\"rounded-bl-none rounded-br-none rounded-tl-[20px] rounded-tr-[20px]\"\n                />\n              </div>\n              <div class=\"p-[20px]\">\n                <h3 class=\"mt-[12px] text-[18px] font-semibold leading-[24px]\">\n                ").concat(article.title, "\n                </h3>\n                <div class=\"mt-4 flex items-center gap-x-[24px] pb-4\">\n                  <div class=\"flex items-center gap-x-2\">\n                    <img src=\"./assets/icons/calenda.svg\" />\n                    <span class=\"font-normal leading-[24px] text-[#555555]\">").concat(article.time, "</span>\n                  </div>\n                </div>\n                <p class=\"text-[#555555] leading-[27px]\">").concat(article.desc, "</p>\n              </div>\n      ");
+                    articleContainer_2.appendChild(divArticle);
+                });
+                return [3 /*break*/, 4];
+            case 3:
+                error_6 = _a.sent();
+                console.error("Error fetching articles");
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
@@ -282,7 +314,6 @@ var handleShowPasswordLogin = function () {
     var iconPasswordLogin = document.getElementById("eye-password-login");
     handleShow(iconPasswordLogin, inputPasswordLogin);
 };
-// 4. Home Page
 var app = function () {
     // Current page - lấy ra đường dẫn. Chỉ thực thi các hàm tương ứng với trang hiện tại
     var currentPage = window.location.pathname;
@@ -302,4 +333,5 @@ getCoursesPageHome();
 getFeedbacksHome();
 getArticlesHome();
 getCoursesPageCourses();
+getArticlesPageBlog();
 app();

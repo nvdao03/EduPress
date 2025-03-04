@@ -191,7 +191,7 @@ const getArticlesHome = async () => {
 
     articleContainer.innerHTML = "";
 
-    data.map((article: Articles) => {
+    data.slice(0, 3).map((article: Articles) => {
       const divArticle = document.createElement("div");
       divArticle.className =
         "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
@@ -289,6 +289,47 @@ const getCoursesPageCourses = async () => {
   }
 };
 
+const getArticlesPageBlog = async () => {
+  try {
+    const reponse = await fetch(`${baseUrl}/articles`);
+    const data: Articles[] = await reponse.json();
+    const articleContainer = document.getElementById("blog-articles") as HTMLElement;
+
+    if (!articleContainer) return;
+
+    articleContainer.innerHTML = "";
+
+    data.map((article: Articles) => {
+      const divArticle = document.createElement("div");
+      divArticle.className =
+        "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
+      divArticle.innerHTML = `
+        <div>
+                <img
+                  src=${`http://localhost:4000/${article.image}`}
+                  class="rounded-bl-none rounded-br-none rounded-tl-[20px] rounded-tr-[20px]"
+                />
+              </div>
+              <div class="p-[20px]">
+                <h3 class="mt-[12px] text-[18px] font-semibold leading-[24px]">
+                ${article.title}
+                </h3>
+                <div class="mt-4 flex items-center gap-x-[24px] pb-4">
+                  <div class="flex items-center gap-x-2">
+                    <img src="./assets/icons/calenda.svg" />
+                    <span class="font-normal leading-[24px] text-[#555555]">${article.time}</span>
+                  </div>
+                </div>
+                <p class="text-[#555555] leading-[27px]">${article.desc}</p>
+              </div>
+      `;
+      articleContainer.appendChild(divArticle);
+    });
+  } catch (error) {
+    console.error("Error fetching articles");
+  }
+};
+
 const handleShow = (icon: HTMLDivElement, item: HTMLInputElement) => {
   icon.addEventListener("click", () => {
     if (item.type === "password") {
@@ -348,8 +389,6 @@ const handleShowPasswordLogin = () => {
   handleShow(iconPasswordLogin, inputPasswordLogin);
 };
 
-// 4. Home Page
-
 const app = () => {
   // Current page - lấy ra đường dẫn. Chỉ thực thi các hàm tương ứng với trang hiện tại
   const currentPage = window.location.pathname;
@@ -373,4 +412,5 @@ getCoursesPageHome();
 getFeedbacksHome();
 getArticlesHome();
 getCoursesPageCourses();
+getArticlesPageBlog();
 app();
