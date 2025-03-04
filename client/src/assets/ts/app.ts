@@ -192,7 +192,8 @@ const getArticlesHome = async () => {
     articleContainer.innerHTML = "";
 
     data.slice(0, 3).map((article: Articles) => {
-      const divArticle = document.createElement("div");
+      const divArticle = document.createElement("a");
+      divArticle.href = "http://127.0.0.1:5500/client/public/blog-detail.html";
       divArticle.className =
         "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
       divArticle.innerHTML = `
@@ -300,7 +301,8 @@ const getArticlesPageBlog = async () => {
     articleContainer.innerHTML = "";
 
     data.map((article: Articles) => {
-      const divArticle = document.createElement("div");
+      const divArticle = document.createElement("a");
+      divArticle.href = "http://127.0.0.1:5500/client/public/blog-detail.html";
       divArticle.className =
         "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
       divArticle.innerHTML = `

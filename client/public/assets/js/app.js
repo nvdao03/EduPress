@@ -177,7 +177,8 @@ var getArticlesHome = function () { return __awaiter(_this, void 0, void 0, func
                     return [2 /*return*/];
                 articleContainer_1.innerHTML = "";
                 data.slice(0, 3).map(function (article) {
-                    var divArticle = document.createElement("div");
+                    var divArticle = document.createElement("a");
+                    divArticle.href = "http://127.0.0.1:5500/client/public/blog-detail.html";
                     divArticle.className =
                         "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
                     divArticle.innerHTML = "\n        <div>\n                <img\n                  src=".concat("http://localhost:4000/".concat(article.image), "\n                  class=\"rounded-bl-none rounded-br-none rounded-tl-[20px] rounded-tr-[20px]\"\n                />\n              </div>\n              <div class=\"p-[20px]\">\n                <h3 class=\"mt-[12px] text-[18px] font-semibold leading-[24px]\">\n                ").concat(article.title, "\n                </h3>\n                <div class=\"mt-4 flex items-center gap-x-[24px] pb-4\">\n                  <div class=\"flex items-center gap-x-2\">\n                    <img src=\"./assets/icons/calenda.svg\" />\n                    <span class=\"font-normal leading-[24px] text-[#555555]\">").concat(article.time, "</span>\n                  </div>\n                </div>\n                <p class=\"text-[#555555] leading-[27px]\">").concat(article.desc, "</p>\n              </div>\n      ");
@@ -248,7 +249,8 @@ var getArticlesPageBlog = function () { return __awaiter(_this, void 0, void 0, 
                     return [2 /*return*/];
                 articleContainer_2.innerHTML = "";
                 data.map(function (article) {
-                    var divArticle = document.createElement("div");
+                    var divArticle = document.createElement("a");
+                    divArticle.href = "http://127.0.0.1:5500/client/public/blog-detail.html";
                     divArticle.className =
                         "relative cursor-pointer rounded-[20px] border-[1px] border-solid border-[#EAEAEA] bg-[#FFF] transition-all duration-300 ease-in-out hover:-translate-y-[16px] hover:[box-shadow:0px_4px_20px_0px_rgba(0,_0,_0,_0.10)]";
                     divArticle.innerHTML = "\n        <div>\n                <img\n                  src=".concat("http://localhost:4000/".concat(article.image), "\n                  class=\"rounded-bl-none rounded-br-none rounded-tl-[20px] rounded-tr-[20px]\"\n                />\n              </div>\n              <div class=\"p-[20px]\">\n                <h3 class=\"mt-[12px] text-[18px] font-semibold leading-[24px]\">\n                ").concat(article.title, "\n                </h3>\n                <div class=\"mt-4 flex items-center gap-x-[24px] pb-4\">\n                  <div class=\"flex items-center gap-x-2\">\n                    <img src=\"./assets/icons/calenda.svg\" />\n                    <span class=\"font-normal leading-[24px] text-[#555555]\">").concat(article.time, "</span>\n                  </div>\n                </div>\n                <p class=\"text-[#555555] leading-[27px]\">").concat(article.desc, "</p>\n              </div>\n      ");
