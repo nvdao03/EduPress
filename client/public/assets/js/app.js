@@ -265,6 +265,30 @@ var getArticlesPageBlog = function () { return __awaiter(_this, void 0, void 0, 
         }
     });
 }); };
+var getFaqsListPageFaqs = function () { return __awaiter(_this, void 0, void 0, function () {
+    var response, data, faqsContainer;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetch("".concat(baseUrl, "/faqs"))];
+            case 1:
+                response = _a.sent();
+                return [4 /*yield*/, response.json()];
+            case 2:
+                data = _a.sent();
+                faqsContainer = document.getElementById("faqs-list");
+                if (!faqsContainer)
+                    return [2 /*return*/];
+                data.map(function (item) {
+                    var divFaqs = document.createElement("div");
+                    divFaqs.className = "rounded-[8px] border border-solid border-[#F5F5F5] bg-[#F5F5F5]";
+                    divFaqs.innerHTML = "\n      <div>\n        <button\n          data-btn-id=\"".concat(item.id, "\"\n          type=\"button\"\n          class=\"faqs-button flex h-full w-full items-center justify-between px-[30px] py-[20px]\"\n        >\n          <h2 class=\"faqs-heading font-semibold leading-[1.5] text-black\">").concat(item.heading, "</h2>\n          <img src=").concat("http://localhost:4000".concat(item.icon), " />\n        </button>\n        <div data-desc-id=").concat(item.id, " class=\"faqs-desc hidden px-[30px] pb-[20px] font-normal text-[#555]\">\n          <p class=\"leading-[2.0]\">\n            ").concat(item.description, "\n          </p>\n        </div>\n      </div>\n    ");
+                    faqsContainer.appendChild(divFaqs);
+                });
+                handleShowFaqs();
+                return [2 /*return*/];
+        }
+    });
+}); };
 var handleShow = function (icon, item) {
     icon.addEventListener("click", function () {
         if (item.type === "password") {
@@ -316,24 +340,52 @@ var handleShowPasswordLogin = function () {
     var iconPasswordLogin = document.getElementById("eye-password-login");
     handleShow(iconPasswordLogin, inputPasswordLogin);
 };
-var app = function () {
-    // Current page - lấy ra đường dẫn. Chỉ thực thi các hàm tương ứng với trang hiện tại
-    var currentPage = window.location.pathname;
-    // indexOf() - Lấy ra một chuỗi con trong chuỗi gốc nếu có trả về vị trí tìm thấy đầu tiên của chuỗi con
-    if (currentPage.indexOf("register.html")) {
-        handleButtonRegister();
-        handleShowPasswordRegister();
-    }
-    if (currentPage.indexOf("login.html")) {
-        handleShowPasswordLogin();
-    }
-    if (currentPage.indexOf("index.html")) {
-    }
+// 4. FAQS page -> Chưa Xong
+var handleShowFaqs = function () {
+    // const buttonFaqs = document.querySelectorAll(".faqs-button");
+    // const descFaqs = document.querySelectorAll(".faqs-desc");
+    // buttonFaqs.forEach((button) => {
+    //   button.addEventListener("click", () => {
+    //     descFaqs.forEach((desc) => {
+    //       const descId = desc.getAttribute("data-desc-id");
+    //       if (button.getAttribute("data-btn-id") === descId) {
+    //         desc.classList.remove("hidden");
+    //         desc.classList.add("block");
+    //       }
+    //     });
+    // const desc = button.nextElementSibling;
+    // if (desc?.classList.contains("hidden")) {
+    //   desc.classList.remove("hidden");
+    //   desc.classList.add("block");
+    // } else {
+    //   desc?.classList.remove("block");
+    //   desc?.classList.add("hidden");
+    // }
+    // console.log(button);
+    // console.log(desc);
+    //   });
+    // });
 };
+var app = function () { return __awaiter(_this, void 0, void 0, function () {
+    var currentPage;
+    return __generator(this, function (_a) {
+        currentPage = window.location.pathname;
+        // indexOf() - Lấy ra một chuỗi con trong chuỗi gốc nếu có trả về vị trí tìm thấy đầu tiên của chuỗi con
+        if (currentPage.indexOf("register.html")) {
+            handleButtonRegister();
+            handleShowPasswordRegister();
+        }
+        if (currentPage.indexOf("login.html")) {
+            handleShowPasswordLogin();
+        }
+        return [2 /*return*/];
+    });
+}); };
 getCategoriesPageHome();
 getCoursesPageHome();
 getFeedbacksHome();
 getArticlesHome();
 getCoursesPageCourses();
 getArticlesPageBlog();
+getFaqsListPageFaqs();
 app();

@@ -216,5 +216,55 @@
       "time": "Jan 24, 22023",
       "desc": "Looking for an amazing & well-functional LearnPress WordPress Theme?..."
     }
+  ],
+  "faqs": [
+    {
+      "id": 1,
+      "heading": "What is Royalty-Free Content?",
+      "description": "Royalty-free content allows users to use it without paying ongoing fees after purchase.",
+      "icon": "/icons/faqs/arr-bottom.svg"
+    },
+    {
+      "id": 2,
+      "heading": "How Do I Purchase a License?",
+      "description": "To purchase a license, select your desired content, add it to your cart, and complete the checkout process.",
+      "icon": "/icons/faqs/arr-bottom.svg"
+    },
+    {
+      "id": 3,
+      "heading": "Can I Use Images for Commercial Projects?",
+      "description": "Yes, most royalty-free images can be used for commercial purposes, but check the license details for any restrictions.",
+      "icon": "/icons/faqs/arr-bottom.svg"
+    },
+    {
+      "id": 4,
+      "heading": "Do Licenses Expire?",
+      "description": "No, once you purchase a royalty-free license, you can use the content indefinitely without renewal fees.",
+      "icon": "/icons/faqs/arr-bottom.svg"
+    },
+    {
+      "id": 5,
+      "heading": "What File Formats Are Available?",
+      "description": "Files are typically available in JPG, PNG, and sometimes SVG or PSD formats, depending on the content.",
+      "icon": "/icons/faqs/arr-bottom.svg"
+    },
+    {
+      "id": 6,
+      "heading": "Can I Resell Purchased Content?",
+      "description": "No, you cannot resell, redistribute, or claim ownership of royalty-free content.",
+      "icon": "/icons/faqs/arr-bottom.svg"
+    },
+    {
+      "id": 7,
+      "heading": "Is Attribution Required?",
+      "description": "Most royalty-free licenses do not require attribution, but always check the specific license terms.",
+      "icon": "/icons/faqs/arr-bottom.svg"
+    },
+    {
+      "id": 8,
+      "heading": "What Happens If I Use Content Without a License?",
+      "description": "Using content without a valid license may result in legal action or copyright claims against you.",
+      "icon": "/icons/faqs/arr-bottom.svg"
+    }
   ]
 }

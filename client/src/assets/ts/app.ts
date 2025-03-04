@@ -35,6 +35,13 @@ interface Articles {
   desc: string;
 }
 
+interface Faqs {
+  id: string;
+  heading: string;
+  description: string;
+  icon: string;
+}
+
 // Load data header, footer
 document.addEventListener("DOMContentLoaded", () => {
   const header: HTMLElement | any = document.getElementById("header");
@@ -332,6 +339,39 @@ const getArticlesPageBlog = async () => {
   }
 };
 
+const getFaqsListPageFaqs = async () => {
+  const response = await fetch(`${baseUrl}/faqs`);
+  const data: Faqs[] = await response.json();
+  const faqsContainer = document.getElementById("faqs-list");
+
+  if (!faqsContainer) return;
+
+  data.map((item) => {
+    const divFaqs = document.createElement("div");
+    divFaqs.className = "rounded-[8px] border border-solid border-[#F5F5F5] bg-[#F5F5F5]";
+    divFaqs.innerHTML = `
+      <div>
+        <button
+          data-btn-id="${item.id}"
+          type="button"
+          class="faqs-button flex h-full w-full items-center justify-between px-[30px] py-[20px]"
+        >
+          <h2 class="faqs-heading font-semibold leading-[1.5] text-black">${item.heading}</h2>
+          <img src=${`http://localhost:4000${item.icon}`} />
+        </button>
+        <div data-desc-id=${item.id} class="faqs-desc hidden px-[30px] pb-[20px] font-normal text-[#555]">
+          <p class="leading-[2.0]">
+            ${item.description}
+          </p>
+        </div>
+      </div>
+    `;
+    faqsContainer.appendChild(divFaqs);
+  });
+
+  handleShowFaqs();
+};
+
 const handleShow = (icon: HTMLDivElement, item: HTMLInputElement) => {
   icon.addEventListener("click", () => {
     if (item.type === "password") {
@@ -391,7 +431,34 @@ const handleShowPasswordLogin = () => {
   handleShow(iconPasswordLogin, inputPasswordLogin);
 };
 
-const app = () => {
+// 4. FAQS page -> Chưa Xong
+const handleShowFaqs = () => {
+  // const buttonFaqs = document.querySelectorAll(".faqs-button");
+  // const descFaqs = document.querySelectorAll(".faqs-desc");
+  // buttonFaqs.forEach((button) => {
+  //   button.addEventListener("click", () => {
+  //     descFaqs.forEach((desc) => {
+  //       const descId = desc.getAttribute("data-desc-id");
+  //       if (button.getAttribute("data-btn-id") === descId) {
+  //         desc.classList.remove("hidden");
+  //         desc.classList.add("block");
+  //       }
+  //     });
+  // const desc = button.nextElementSibling;
+  // if (desc?.classList.contains("hidden")) {
+  //   desc.classList.remove("hidden");
+  //   desc.classList.add("block");
+  // } else {
+  //   desc?.classList.remove("block");
+  //   desc?.classList.add("hidden");
+  // }
+  // console.log(button);
+  // console.log(desc);
+  //   });
+  // });
+};
+
+const app = async () => {
   // Current page - lấy ra đường dẫn. Chỉ thực thi các hàm tương ứng với trang hiện tại
   const currentPage = window.location.pathname;
 
@@ -404,9 +471,6 @@ const app = () => {
   if (currentPage.indexOf("login.html")) {
     handleShowPasswordLogin();
   }
-
-  if (currentPage.indexOf("index.html")) {
-  }
 };
 
 getCategoriesPageHome();
@@ -415,4 +479,5 @@ getFeedbacksHome();
 getArticlesHome();
 getCoursesPageCourses();
 getArticlesPageBlog();
+getFaqsListPageFaqs();
 app();
