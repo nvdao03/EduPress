@@ -38,6 +38,7 @@ var _this = this;
 // => Load data header, footer
 document.addEventListener("DOMContentLoaded", function () {
     var header = document.getElementById("header");
+    var headerLogin = document.getElementById("header-login");
     var footer = document.getElementById("footer");
     fetch("/client/public/template/header.html")
         .then(function (response) { return response.text(); })
@@ -51,6 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (response) { return response.text(); })
         .then(function (data) {
         footer.innerHTML = data;
+    })
+        .catch(function (error) {
+        console.log(error.message);
+    });
+    fetch("/client/public/template/header-login.html")
+        .then(function (response) { return response.text(); })
+        .then(function (data) {
+        headerLogin.innerHTML = data;
     })
         .catch(function (error) {
         console.log(error.message);
@@ -414,7 +423,7 @@ var handleSubmitLogin = function () {
                 user.password === formData.password;
         });
         if (isUser) {
-            window.location.href = "./index.html";
+            window.location.href = "./index-login.html";
             alert("Đăng nhập thành công");
         }
         else {

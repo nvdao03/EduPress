@@ -53,6 +53,7 @@ interface User {
 // => Load data header, footer
 document.addEventListener("DOMContentLoaded", () => {
   const header: HTMLElement | any = document.getElementById("header");
+  const headerLogin: HTMLElement | any = document.getElementById("header-login");
   const footer: HTMLElement | any = document.getElementById("footer");
 
   fetch("/client/public/template/header.html")
@@ -68,6 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((response) => response.text())
     .then((data) => {
       footer.innerHTML = data;
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+
+  fetch("/client/public/template/header-login.html")
+    .then((response) => response.text())
+    .then((data) => {
+      headerLogin.innerHTML = data;
     })
     .catch((error) => {
       console.log(error.message);
@@ -501,7 +511,7 @@ const handleSubmitLogin = () => {
     );
 
     if (isUser) {
-      window.location.href = "./index.html";
+      window.location.href = "./index-login.html";
       alert("Đăng nhập thành công");
     } else {
       alert("Tài khoản hoặc mật khẩu không chính xác");

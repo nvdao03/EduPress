@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/output.css" />
+    <title>Contact</title>
+  </head>
+  <body>
+    <div id="header-login" class="fixed left-0 top-0 z-[5] w-full border-b border-solid border-[#ccc] bg-white"></div>
+    <main>
+      <!-- Daborad -->
+      <div class="bg-[#F5F5F5] py-[15px]">
+        <div class="custom-container">
+          <ul class="flex items-center gap-x-2">
+            <li>
+              <a
+                class="inline-block h-full font-normal text-[#555] transition-all duration-300 ease-in-out hover:text-[#000] hover:underline"
+                href="./index-login.html"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <img src="./assets/icons/arrow-right.svg" />
+            </li>
+            <li>
+              <a class="inline-block h-full" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Direct Line? -->
+      <div>
+        <div class="custom-container flex gap-x-[30px] pt-[60px]">
+          <div class="w-[35%]">
+            <h2 class="custom-h2-heading">Need a direct line?</h2>
+            <p class="mb-[16px] mt-[24px] leading-[1.5] text-[#555]">
+              Cras massa et odio donec faucibus in. Vitae pretium massa dolor ullamcorper lectus elit quam.
+            </p>
+            <div class="flex flex-col gap-y-[20px]">
+              <!-- Item 1 -->
+              <div class="flex gap-x-[24px]">
+                <div class="flex items-center justify-center rounded-[8px] bg-[#F5F5F5] px-[12px] py-[12px]">
+                  <img src="./assets/icons/phone.svg" alt="Phone" />
+                </div>
+                <div class="flex flex-col justify-between">
+                  <p class="font-normal leading-[1.5] text-[#555]">Phone</p>
+                  <a href="tel:(123) 456 7890">(123) 456 7890</a>
+                </div>
+              </div>
+              <!-- Item 2 -->
+              <div class="flex gap-x-[24px]">
+                <div class="flex items-center justify-center rounded-[8px] bg-[#F5F5F5] px-[12px] py-[12px]">
+                  <img src="./assets/icons/email.svg" alt="Email" />
+                </div>
+                <div class="flex flex-col justify-between">
+                  <p class="font-normal leading-[1.5] text-[#555]">Email</p>
+                  <a href="mailto:contact@thimpress.com" class="mt-auto block">contact@thimpress.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="h-[450px] flex-1 rounded-[20px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29788.554734442077!2d105.770329083263!3d21.049910971505607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9f10111ae7%3A0x9112347ed343cc56!2sMindX%20Technology%20School%20(Th%C3%A0nh%20C%C3%B4ng)!5e0!3m2!1svi!2s!4v1741066498741!5m2!1svi!2s"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="rounded-[20px]"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <!-- Contact Us -->
+      <div class="pb-[90px] pt-[60px]">
+        <div class="custom-container">
+          <h2 class="custom-h2-heading">Contact us</h2>
+          <p class="mt-[20px] text-[#555]">Your email address will not be published. Required fields are marked *</p>
+          <form class="mt-[30px]">
+            <div class="flex w-full flex-row gap-x-[20px]">
+              <input
+                type="text"
+                placeholder="Name"
+                class="flex-1 rounded-[8px] border border-solid border-[#9D9D9D] px-[10px] py-[10px] placeholder:text-[#9D9D9D]"
+              />
+              <input
+                type="text"
+                placeholder="Email"
+                class="flex-1 rounded-[8px] border border-solid border-[#9D9D9D] px-[10px] py-[10px] placeholder:text-[#9D9D9D]"
+              />
+            </div>
+            <div>
+              <textarea
+                placeholder="Comment"
+                class="mt-[20px] h-[100px] w-full resize-none rounded-[8px] border border-solid border-[#9D9D9D] px-[10px] py-[10px] placeholder:text-[#9D9D9D]"
+              ></textarea>
+            </div>
+            <div class="mt-[20px] flex items-center gap-x-2">
+              <input type="checkbox" name="" id="" />
+              <label class="font-normal leading-[27px] text-[#555]">
+                Save my name, email in this brower for the next time I comment
+              </label>
+            </div>
+            <button class="custom-button-primary mt-[20px]">Posts Comment</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <div id="footer"></div>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
