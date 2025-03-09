@@ -369,7 +369,7 @@ const getFaqsListPageFaqs = async () => {
 
   data.map((item) => {
     const divFaqs = document.createElement("div");
-    divFaqs.className = "rounded-[8px] border border-solid border-[#F5F5F5] bg-[#F5F5F5]";
+    divFaqs.className = "rounded-[8px] h-fit border border-solid border-[#F5F5F5] bg-[#F5F5F5]";
     divFaqs.innerHTML = `
       <div>
         <button
@@ -380,7 +380,7 @@ const getFaqsListPageFaqs = async () => {
           <h2 class="faqs-heading font-semibold leading-[1.5] text-black">${item.heading}</h2>
           <img src=${`http://localhost:4000${item.icon}`} />
         </button>
-        <div data-desc-id=${item.id} class="faqs-desc hidden px-[30px] pb-[20px] font-normal text-[#555]">
+        <div data-desc-id="${item.id}" class="faqs-desc px-[30px] pb-[20px] font-normal text-[#555]">
           <p class="leading-[2.0]">
             ${item.description}
           </p>
@@ -546,31 +546,30 @@ const handleShowPasswordLogin = () => {
   handleShow(iconPasswordLogin, inputPasswordLogin);
 };
 
-// 4. FAQS page -> Chưa Xong
 const handleShowFaqs = () => {
-  // const buttonFaqs = document.querySelectorAll(".faqs-button");
-  // const descFaqs = document.querySelectorAll(".faqs-desc");
-  // buttonFaqs.forEach((button) => {
-  //   button.addEventListener("click", () => {
-  //     descFaqs.forEach((desc) => {
-  //       const descId = desc.getAttribute("data-desc-id");
-  //       if (button.getAttribute("data-btn-id") === descId) {
-  //         desc.classList.remove("hidden");
-  //         desc.classList.add("block");
-  //       }
-  //     });
-  // const desc = button.nextElementSibling;
-  // if (desc?.classList.contains("hidden")) {
-  //   desc.classList.remove("hidden");
-  //   desc.classList.add("block");
-  // } else {
-  //   desc?.classList.remove("block");
-  //   desc?.classList.add("hidden");
-  // }
-  // console.log(button);
-  // console.log(desc);
-  //   });
-  // });
+  const buttonFaqs = document.querySelectorAll(".faqs-button");
+  const descFaqs = document.querySelectorAll(".faqs-desc");
+
+  // Mặc định ẩn tất cả các desciption
+  descFaqs.forEach((desc) => desc.classList.add("hidden"));
+
+  buttonFaqs.forEach((button) => {
+    button.addEventListener("click", () => {
+      const btnID = button.getAttribute("data-btn-id");
+      const currentDesc = document.querySelector(`[data-desc-id="${btnID}"]`);
+
+      descFaqs.forEach((desc) => {
+        if (desc !== currentDesc) {
+          desc.classList.add("hidden");
+        }
+      });
+
+      currentDesc?.classList.toggle("hidden");
+
+      console.log(btnID);
+      console.log(currentDesc);
+    });
+  });
 };
 
 // => Đưa các sự kiện vào 1 function rồi gọi 1 thể

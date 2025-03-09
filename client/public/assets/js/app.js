@@ -291,8 +291,8 @@ var getFaqsListPageFaqs = function () { return __awaiter(_this, void 0, void 0, 
                     return [2 /*return*/];
                 data.map(function (item) {
                     var divFaqs = document.createElement("div");
-                    divFaqs.className = "rounded-[8px] border border-solid border-[#F5F5F5] bg-[#F5F5F5]";
-                    divFaqs.innerHTML = "\n      <div>\n        <button\n          data-btn-id=\"".concat(item.id, "\"\n          type=\"button\"\n          class=\"faqs-button flex h-full w-full items-center justify-between px-[30px] py-[20px]\"\n        >\n          <h2 class=\"faqs-heading font-semibold leading-[1.5] text-black\">").concat(item.heading, "</h2>\n          <img src=").concat("http://localhost:4000".concat(item.icon), " />\n        </button>\n        <div data-desc-id=").concat(item.id, " class=\"faqs-desc hidden px-[30px] pb-[20px] font-normal text-[#555]\">\n          <p class=\"leading-[2.0]\">\n            ").concat(item.description, "\n          </p>\n        </div>\n      </div>\n    ");
+                    divFaqs.className = "rounded-[8px] h-fit border border-solid border-[#F5F5F5] bg-[#F5F5F5]";
+                    divFaqs.innerHTML = "\n      <div>\n        <button\n          data-btn-id=\"".concat(item.id, "\"\n          type=\"button\"\n          class=\"faqs-button flex h-full w-full items-center justify-between px-[30px] py-[20px]\"\n        >\n          <h2 class=\"faqs-heading font-semibold leading-[1.5] text-black\">").concat(item.heading, "</h2>\n          <img src=").concat("http://localhost:4000".concat(item.icon), " />\n        </button>\n        <div data-desc-id=\"").concat(item.id, "\" class=\"faqs-desc px-[30px] pb-[20px] font-normal text-[#555]\">\n          <p class=\"leading-[2.0]\">\n            ").concat(item.description, "\n          </p>\n        </div>\n      </div>\n    ");
                     faqsContainer.appendChild(divFaqs);
                 });
                 handleShowFaqs();
@@ -456,29 +456,24 @@ var handleShowPasswordLogin = function () {
 };
 // 4. FAQS page -> Chưa Xong
 var handleShowFaqs = function () {
-    // const buttonFaqs = document.querySelectorAll(".faqs-button");
-    // const descFaqs = document.querySelectorAll(".faqs-desc");
-    // buttonFaqs.forEach((button) => {
-    //   button.addEventListener("click", () => {
-    //     descFaqs.forEach((desc) => {
-    //       const descId = desc.getAttribute("data-desc-id");
-    //       if (button.getAttribute("data-btn-id") === descId) {
-    //         desc.classList.remove("hidden");
-    //         desc.classList.add("block");
-    //       }
-    //     });
-    // const desc = button.nextElementSibling;
-    // if (desc?.classList.contains("hidden")) {
-    //   desc.classList.remove("hidden");
-    //   desc.classList.add("block");
-    // } else {
-    //   desc?.classList.remove("block");
-    //   desc?.classList.add("hidden");
-    // }
-    // console.log(button);
-    // console.log(desc);
-    //   });
-    // });
+    var buttonFaqs = document.querySelectorAll(".faqs-button");
+    var descFaqs = document.querySelectorAll(".faqs-desc");
+    // Mặc định ẩn tất cả các desciption
+    descFaqs.forEach(function (desc) { return desc.classList.add("hidden"); });
+    buttonFaqs.forEach(function (button) {
+        button.addEventListener("click", function () {
+            var btnID = button.getAttribute("data-btn-id");
+            var currentDesc = document.querySelector("[data-desc-id=\"".concat(btnID, "\"]"));
+            descFaqs.forEach(function (desc) {
+                if (desc !== currentDesc) {
+                    desc.classList.add("hidden");
+                }
+            });
+            currentDesc === null || currentDesc === void 0 ? void 0 : currentDesc.classList.toggle("hidden");
+            console.log(btnID);
+            console.log(currentDesc);
+        });
+    });
 };
 // => Đưa các sự kiện vào 1 function rồi gọi 1 thể
 var app = function () {

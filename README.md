@@ -13,7 +13,7 @@ $ git clone https://github.com/nvdao03/EduPress.git
 $ cd EduPress
 $ npm install
 $ npm run dev
-$ cd server 
+$ cd server
 $ npm run
 ```
 
